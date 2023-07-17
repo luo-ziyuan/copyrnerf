@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Occlusion-Free Scene Recovery via Neural Radiance Fields">
+  <meta name="keywords" content="OCC-NeRF, NeRF, Occlusion Removal">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCC-NeRF: Occlusion-Free Scene Recovery via Neural Radiance Fields</title>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://freebutuselesssoul.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/FreeButUselessSoul/TNeRF">
+            Neural Transmitted Radiance Fields
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">OCC-NeRF: Occlusion-Free Scene Recovery via Neural Radiance Fields</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://freebutuselesssoul.github.io/">Chengxuan Zhu</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.comp.hkbu.edu.hk/~renjiewan/">Renjie Wan</a><sup>3</sup>,</span>
+            <span class="author-block">
+              Yunkai Tang<sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://camera.pku.edu.cn/">Boxin Shi</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Natl. Engineering Research Center of Visual Technology, School of Computer Science, Peking University</span>
+            <span class="author-block"><sup>2</sup> Natl. Key Lab. for Multimedia Information Processing, School of Computer Science, Peking University</span>
+            <span class="author-block"><sup>3</sup> Department of Computer Science, Hong Kong Baptist University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="tooltip">
+                <span class="link-block">
+                  <a href="./assets/paper.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="tooltiptext">With animation!</span>
+              </span>    
+              
+              <span class="tooltip">
+              <span class="link-block">
+                <a href="./assets/supp.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+              <span class="tooltiptext">With animation!</span>
+              </span> 
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/FreeButUselessSoul/occ-nerf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1RqPOeRZt1ZiiJwabPTIlvSnhwToxyvYI?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <div class="video-compare-container" id="statueDiv">
+                <video class="video" id="statue" loop playsinline autoPlay muted src="assets/comparison_statue_ours_nerf.mp4" onplay="resizeAndPlay(this)"></video>
+                
+                <canvas height=0 class="videoMerge" id="statueMerge"></canvas>
+            </div>
+            <div class="video-compare-container" id="scribble2Div">
+              <video class="video" id="scribble2" loop playsinline autoPlay muted src="assets/comparison_scribble2_ours_nerf.mp4" onplay="resizeAndPlay(this)"></video>
+              
+              <canvas height=0 class="videoMerge" id="scribble2Merge"></canvas>
+            </div>
+            <!-- <video id="teaser" autoplay muted loop playsinline width="40%">
+              <source src="assets/comparison_statue_nerf.mp4"
+                      type="video/mp4">
+            </video> -->
+      </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">OCC-NeRF</span> removes the foreground occlusion in a scene, and refines the error-prone camera parameter estimation.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our everyday lives are filled with occlusions that we 
+            strive to see through. By aggregating desired background
+            information from different viewpoints, we can easily eliminate
+            such occlusions without any external occlusion-free
+            supervision. Though several occlusion removal methods
+            have been proposed to empower machine vision systems
+            with such ability, their performances are still unsatisfactory
+            due to reliance on external supervision. We propose a
+            novel method, OCC-NeRF, for occlusion removal by adequately considering
+            the benefits of multiple viewing angles, which directly
+            builds a mapping between viewing angles and their corresponding
+            scene details leveraging Neural Radiance Fields
+            (NeRF). We also develop an effective scheme to jointly optimize
+            camera parameters and scene reconstruction when
+            occlusions are present. An additional depth constraint is
+            applied to supervise the entire optimization without labeled
+            external data for training. Our experimental results on existing
+            and newly collected datasets validate the effectiveness
+            of our method.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="column is-centered has-text-centered">
+      <h2 class="title is-3">Animated Comparison</h2>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <section class="hero is-light is-small">
+          <div class="hero-body">
+            <div class="container">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-fence1">
+                  <video poster="" id="fence1" autoplay controls muted loop playsinline height="100%">
+                    <source src="assets/comparison_fence1.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-scribble3">
+                  <video poster="" id="scribble3" autoplay controls muted loop playsinline height="100%">
+                    <source src="assets/comparison_scribble3.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-wire1">
+                  <video poster="" id="wire1" autoplay controls muted loop playsinline height="100%">
+                    <source src="assets/comparison_wire1.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-statue">
+                  <video poster="" id="statue" autoplay controls muted loop playsinline height="100%">
+                    <source src="assets/comparison_statue.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+                <div class="item item-scribble2">
+                  <video poster="" id="scribble2" autoplay controls muted loop playsinline height="100%">
+                    <source src="assets/comparison_scribble2.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="publication-video">
+          <iframe src="https://drive.google.com/file/d/1_ASFtK5Dbi4Qr9gODdMI6WyaY34lmr9z/preview"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+    <!--/ Dataset Demo.-->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset</h2>
+
+        <div id="dataset-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-blueshirt">
+            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-mask">
+            <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-coffee">
+            <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-toby">
+            <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+    <!--/ Dataset Demo.-->
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      Visual Effects.
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">More accurate scene reconstruction</h2>
+          <p>
+            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+            would be impossible without nerfies since it would require going through a wall.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      / Visual Effects.
+
+      Matting.
+      <div class="column">
+        <h2 class="title is-3">Matting</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    / Matting.
+
+    / Concurrent Work.
+
+  </div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{zhu2023occlusion,
+  author    = {Chengxuan Zhu and Renjie Wan and Yunkai Tang and Boxin Shi},
+  title     = {Occlusion-Free Scene Recovery via Neural Radiance Fields},
+  journal   = {CVPR},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://camera.pku.edu.cn/Publication.htm">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/FreeButUselessSoul" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/FreeButUselessSoul/occnerf">source code</a> of this website,
+            we just ask that you link back to this page in the footer. Some of the source code of this 
+            website is borrowed from <a href="https://nerfies.github.io">nerfies</a> and <a href="https://dorverbin.github.io/refnerf/">ref-NeRF</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
