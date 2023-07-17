@@ -1,6 +1,6 @@
 # OCC-NeRF
 
-This is the repository that contains source code for the project page of [OCC-NeRF](https://freebutuselesssoul.github.io/occnerf/).
+This is the repository that contains source code for the project page of [OCC-NeRF](https://luo-ziyuan.github.io/copyrnerf/).
 
 If you find OCC-NeRF useful for your work please cite:
 ```
