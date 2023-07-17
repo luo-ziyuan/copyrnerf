@@ -1,13 +1,13 @@
 # OCC-NeRF
 
-This is the repository that contains source code for the project page of [OCC-NeRF](https://luo-ziyuan.github.io/copyrnerf/).
+This is the repository that contains source code for the project page of [CopyRNeRF](https://luo-ziyuan.github.io/copyrnerf/).
 
-If you find OCC-NeRF useful for your work please cite:
+If you find CopyRNeRF useful for your work please cite:
 ```
-@inproceedings{zhu2023occlusion,
-  author    = {Chengxuan Zhu and Renjie Wan and Yunkai Tang and Boxin Shi},
-  title     = {Occlusion-Free Scene Recovery via Neural Radiance Fields},
-  journal   = {CVPR},
+@inproceedings{luo2023copyrnerf,
+  author    = {Ziyuan Luo and Qing Guo and Ka Chun Cheung and Simon See and Renjie Wan},
+  title     = {Copy{RN}e{RF}: Protecting the CopyRight of Neural Radiance Fields},
+  booktitle   = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year      = {2023},
 }
 ```
