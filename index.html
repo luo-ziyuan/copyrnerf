@@ -140,32 +140,36 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div style="text-align: center;">
-        <img src="assets/fig_1.png" alt="Figure 1" style="width: 400px; height: auto;" />
-      </div>
-    </div>
-    
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-              Neural Radiance Fields (NeRF) have the potential to be a 
-            major representation of media. Since training a NeRF has never been an easy task, 
-            the protection of its model copyright should be a priority. In this paper, by analyzing 
-            the pros and cons of possible copyright protection solutions, we propose to protect the 
-            copyright of NeRF models by replacing the original color representation in NeRF with a 
-            watermarked color representation. Then, a distortion-resistant rendering scheme is designed 
-            to guarantee robust message extraction in 2D renderings of NeRF. Besides extracting embedded 
-            messages from one single view, we present an strategy to extracting copyright messages from 
-            multiple synthesized novel views, which guarantees higher bit accuracy. We propose a method 
-            that directly protects the NeRF model while maintaining high rendering quality and bit accuracy 
-            when compared among optional solutions.
+            Our everyday lives are filled with occlusions that we 
+            strive to see through. By aggregating desired background
+            information from different viewpoints, we can easily eliminate
+            such occlusions without any external occlusion-free
+            supervision. Though several occlusion removal methods
+            have been proposed to empower machine vision systems
+            with such ability, their performances are still unsatisfactory
+            due to reliance on external supervision. We propose a
+            novel method, OCC-NeRF, for occlusion removal by adequately considering
+            the benefits of multiple viewing angles, which directly
+            builds a mapping between viewing angles and their corresponding
+            scene details leveraging Neural Radiance Fields
+            (NeRF). We also develop an effective scheme to jointly optimize
+            camera parameters and scene reconstruction when
+            occlusions are present. An additional depth constraint is
+            applied to supervise the entire optimization without labeled
+            external data for training. Our experimental results on existing
+            and newly collected datasets validate the effectiveness
+            of our method.
           </p>
         </div>
       </div>
     </div>
+    <!--/ Abstract. -->
 
     <!-- Paper video. -->
     <div class="column is-centered has-text-centered">
@@ -280,6 +284,100 @@
     <!--/ Dataset Demo.-->
   </div>
 </section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      Visual Effects.
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">More accurate scene reconstruction</h2>
+          <p>
+            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+            would be impossible without nerfies since it would require going through a wall.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      / Visual Effects.
+
+      Matting.
+      <div class="column">
+        <h2 class="title is-3">Matting</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    / Matting.
+
+    / Concurrent Work.
+
+  </div>
+</section> -->
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      Visual Effects.
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">More accurate scene reconstruction</h2>
+          <p>
+            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
+            would be impossible without nerfies since it would require going through a wall.
+          </p>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/dollyzoom-stacked.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      / Visual Effects.
+
+      Matting.
+      <div class="column">
+        <h2 class="title is-3">Matting</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              As a byproduct of our method, we can also solve the matting problem by ignoring
+              samples that fall outside of a bounding box during rendering.
+            </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/matting.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    / Matting.
+
+    / Concurrent Work.
+
+  </div>
+</section> -->
 
 
 <!-- <section class="section">
