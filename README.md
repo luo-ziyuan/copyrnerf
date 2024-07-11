@@ -1,4 +1,4 @@
-# OCC-NeRF
+# CopyRNeRF
 
 This is the repository that contains source code for the project page of [CopyRNeRF](https://luo-ziyuan.github.io/copyrnerf/).
 
